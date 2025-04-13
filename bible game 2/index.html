@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bible Quiz Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- LOGIN FORM -->
+    <div id="login-screen" class="screen">
+      <h1>Bible Quiz Game</h1>
+      <input type="text" id="name" placeholder="Your Name">
+      <input type="number" id="age" placeholder="Your Age">
+      <input type="text" id="experience" placeholder="How long have you been reading the Bible?">
+      <button onclick="startGame()">Start</button>
+    </div>
+
+    <!-- SETUP SCREEN -->
+    <div id="setup-screen" class="screen hidden">
+      <h2>Choose your settings</h2>
+      <label>Testament:
+        <select id="testament">
+          <option>Old</option>
+          <option>New</option>
+        </select>
+      </label>
+      <label>Difficulty:
+        <select id="difficulty">
+          <option>Easy</option>
+          <option>Hard</option>
+          <option>Really Hard</option>
+          <option>Extreme</option>
+        </select>
+      </label>
+      <button onclick="beginQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- GAME SCREEN -->
+    <div id="game-screen" class="screen hidden">
+      <div id="score-board">Score: 0</div>
+      <div id="question-container"></div>
+      <div id="choices-container"></div>
+      <button onclick="useHint()">Hint (-10 pts)</button>
+      <button onclick="submitGame()">Submit</button>
+      <button onclick="quitGame()">Quit</button>
+    </div>
+
+    <!-- DICTIONARY -->
+    <div id="dictionary-screen" class="screen hidden">
+      <h2>Bible Dictionary</h2>
+      <button onclick="loadVerses('Old')">Old Testament</button>
+      <button onclick="loadVerses('New')">New Testament</button>
+      <div id="verse-list"></div>
+      <button onclick="backToGame()">Back to Game</button>
+    </div>
+
+    <!-- LEADERBOARD -->
+    <div id="leaderboard-screen" class="screen hidden">
+      <h2>Leaderboard</h2>
+      <ul id="leaderboard-list"></ul>
+      <button onclick="restartGame()">Play Again</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
